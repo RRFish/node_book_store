@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "member": "nodemon ./dbs/member.js",
-    "redis": "nodemon ./utils/redis.js"
+    "dev": "nodemon ./src/index.js",
+    "member": "nodemon ./src/dbs/member.js",
+    "redis": "nodemon ./src/utils/redis.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "ioredis": "^4.28.5",
     "ioredis-timeout": "^1.5.0",

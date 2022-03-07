@@ -1,10 +1,10 @@
-function deleteVerify (idList) {
+function deleteVerify (idList:Array<number>) {
   if (!idList || idList.length <= 0)
     throw Error('請傳入要刪除的書籍');
   return true;
 }
 
-function updateVerify (id, bookname, bookclassId, author, publishingHouse) {
+function updateVerify (id:number, bookname:string, bookclassId:number, author:string, publishingHouse:string) {
   if (!id)
     throw Error('請傳入id');
 
@@ -19,7 +19,7 @@ function updateVerify (id, bookname, bookclassId, author, publishingHouse) {
   return true;
 }
 
-function insertVerify (bookname, bookclassId, author, publishingHouse) {
+function insertVerify (bookname:string, bookclassId:number, author:string, publishingHouse:string) {
   if (typeof (bookname) != 'string' || bookname.length <= 0)
     throw Error('請傳入正確書名');
 
@@ -34,7 +34,7 @@ function insertVerify (bookname, bookclassId, author, publishingHouse) {
   return true;
 }
 
-module.exports = {
+export {
   deleteVerify,
   updateVerify,
   insertVerify

@@ -2,16 +2,23 @@
   "name": "book_store",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts --project ./ --outDir ./dist",
   "scripts": {
-    "dev": "nodemon ./src/index.js",
-    "member": "nodemon ./src/dbs/member.js",
-    "redis": "nodemon ./src/utils/redis.js"
+    "dev": "nodemon --watch src ./src/index.ts",
+    "build": "rm -rf dist && tsc",
+    "member": "nodemon ./src/dbs/member.ts",
+    "redis": "nodemon ./src/utils/redis.ts",
+    "random": "nodemon ./src/utils/createRandom.ts",
+    "eslint": "eslint src --ext .ts --fix",
+    "test": "mocha -b --sort --recursive --require ts-node/register test/**/*.tests.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/uuid": "^8.3.4",
     "body-parser": "^1.19.2",
+    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
@@ -22,9 +29,24 @@
     "md5": "^2.3.0",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
-    "redis": "^4.0.3"
+    "redis": "^4.0.3",
+    "seedrandom": "^3.0.5",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.19",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.10.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "mocha": "^9.2.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.6.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.5.5"
   }
 }

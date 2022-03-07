@@ -1,10 +1,9 @@
 const md5 = require('md5');
 
-function passwordEncrypt (password) {
+function passwordEncrypt (password:string):string {
   return md5(password);
 }
 
-
-module.exports = {
+export {
   passwordEncrypt
 };

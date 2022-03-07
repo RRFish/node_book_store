@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
+import { queryBooks, deleteBooks, updateBook, insertBook, queryBookClass } from '../dbs/book';
+import { deleteVerify, updateVerify, insertVerify } from '../dataVerify/book';
+import { BookStoreResponse } from '../utils/response';
+import { userTokenVerifyMiddleware } from '../middleware/userToken';
 const router = express.Router();
-const { queryBooks, deleteBooks, updateBook, insertBook, queryBookClass } = require('../dbs/book.js');
-const { deleteVerify, updateVerify, insertVerify } = require('../dataVerify/book.js');
-const { BookStoreResponse } = require('../utils/response');
-const { userTokenVerifyMiddleware } = require('../middleware/userToken.js');
 
 
 // 書籍查詢
@@ -55,6 +55,7 @@ router.post('/insert', userTokenVerifyMiddleware, function (req, res, next) {
   insertVerify(bookname, bookclassId, author, publishingHouse);
   insertBook(bookname, bookclassId, author, publishingHouse)
     .then(() => {
+      console.log('data');
       res.send(new BookStoreResponse('success'));
       next();
     })
@@ -76,4 +77,4 @@ router.post('/queryClass', userTokenVerifyMiddleware, function (req, res, next) 
 
 
 
-module.exports = router;
+export default router;

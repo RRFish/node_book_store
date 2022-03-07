@@ -1,4 +1,4 @@
-function registerVerify (nickname, account, password, passwordRe) {
+function registerVerify (nickname:string, account:string, password:string, passwordRe:string) {
   if (!nickname)
     throw Error('請傳入暱稱');
 
@@ -28,7 +28,7 @@ function registerVerify (nickname, account, password, passwordRe) {
   return true;
 }
 
-function loginVerify (account, password) {
+function loginVerify (account:string, password:string) {
   if (!account)
     throw Error('請傳入帳號');
 
@@ -40,7 +40,7 @@ function loginVerify (account, password) {
 
 
 
-module.exports = {
+export {
   registerVerify,
   loginVerify
 };
